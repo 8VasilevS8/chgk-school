@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Что? Где? Когда? · Школьный клуб</title>
+<meta name="theme-color" content="#060914">
+<link rel="icon" href="img/owl.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;700&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<div class="topbar" id="topbar">
+  <button class="icon-btn" id="btnHome" title="В меню">☰</button>
+  <div class="scoreboard" id="scoreboard">
+    <div class="sb-side"><div class="sb-label" id="sbTeam">Знатоки</div><div class="sb-num" id="sbA">0</div></div>
+    <div class="sb-colon">:</div>
+    <div class="sb-side"><div class="sb-label">Телезрители</div><div class="sb-num" id="sbB">0</div></div>
+  </div>
+  <div class="tb-right">
+    <button class="icon-btn" id="btnMute" title="Звук (M)">🔊</button>
+    <button class="icon-btn" id="btnFs" title="Во весь экран (F)">⛶</button>
+  </div>
+</div>
+
+<main>
+<!-- INTRO -->
+<section class="screen active" id="scIntro">
+  <div class="intro">
+    <div class="owl-wrap"><div class="owl-halo"></div><img src="img/owl.webp" alt="Сова — эмблема клуба" class="owl"></div>
+    <div class="intro-kicker">Интеллектуальный клуб</div>
+    <h1 class="title"><span>Что?</span> <span>Где?</span> <span>Когда?</span></h1>
+    <div class="intro-sub"><span class="line"></span>Школьный клуб<span class="line"></span></div>
+    <button class="btn gold big" id="btnStart">Начать игру</button>
+    <div class="hint">Лучше всего — на проекторе, во весь экран</div>
+  </div>
+</section>
+
+<!-- SETUP -->
+<section class="screen" id="scSetup">
+  <div class="panel setup">
+    <h2 class="h2">Новая игра</h2>
+    <div class="field">
+      <div class="lbl">Класс</div>
+      <div class="seg" id="segGrade">
+        <button data-v="9">9 класс</button><button data-v="10">10 класс</button><button data-v="11">11 класс</button>
+      </div>
+    </div>
+    <div class="field">
+      <div class="lbl">Команда знатоков</div>
+      <input id="inTeam" maxlength="28" placeholder="Например, «Совы 10 Б»">
+    </div>
+    <div class="field row2">
+      <div>
+        <div class="lbl">Игра до</div>
+        <div class="stepper"><button id="tDown">−</button><span id="tVal">6</span><button id="tUp">+</button></div>
+        <div class="sub">очков</div>
+      </div>
+      <div>
+        <div class="lbl">Время на вопрос</div>
+        <div class="stepper"><button id="sDown">−</button><span id="sVal">60</span><button id="sUp">+</button></div>
+        <div class="sub">секунд</div>
+      </div>
+    </div>
+    <label class="check"><input type="checkbox" id="chkTick" checked> Тиканье часов во время минуты</label>
+    <button class="btn gold big" id="btnGo">За стол!</button>
+    <div class="base-note">
+      Сейчас загружены <b>образцы вопросов</b> (по 12 на класс).
+      <label class="link">Загрузить свою базу (JSON)<input type="file" id="inBase" accept=".json,application/json" hidden></label>
+    </div>
+  </div>
+</section>
+
+<!-- BOARD -->
+<section class="screen" id="scBoard">
+  <div class="board">
+    <div class="wheel-wrap">
+      <div class="pointer"></div>
+      <svg id="wheel" viewBox="-210 -210 420 420" aria-label="Игровой стол"></svg>
+      <div class="top" id="top"><div class="top-arm"></div><div class="top-hub"></div></div>
+    </div>
+    <div class="board-side">
+      <div class="round-info" id="roundInfo">Раунд 1</div>
+      <div class="board-title">Волчок выберет вопрос</div>
+      <p class="board-text" id="boardText">Стол разделён на 12 секторов. Сыгранные сектора гаснут.</p>
+      <button class="btn gold big" id="btnSpin">Крутить волчок</button>
+      <div class="keys"><kbd>S</kbd> крутить · <kbd>F</kbd> экран · <kbd>M</kbd> звук</div>
+      <div class="legend">
+        <span><i class="dot n"></i>вопрос</span><span><i class="dot im"></i>с картинкой</span><span><i class="dot bl"></i>блиц</span><span><i class="dot bb"></i>чёрный ящик</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUESTION -->
+<section class="screen" id="scQuestion">
+  <div class="q-layout">
+    <div class="q-card">
+      <div class="q-meta"><span id="qSector">Сектор 1</span><span class="q-type" id="qType">Вопрос</span><span class="sample" title="Образец вопроса">образец</span></div>
+      <div class="q-blitz" id="qBlitz"></div>
+      <div class="q-text" id="qText"></div>
+      <img class="q-img" id="qImg" alt="">
+      <div class="q-answer" id="qAnswer">
+        <div class="a-lbl">Правильный ответ</div>
+        <div class="a-text" id="aText"></div>
+        <div class="a-com" id="aCom"></div>
+      </div>
+    </div>
+    <div class="q-side">
+      <div class="timer" id="timer">
+        <svg viewBox="0 0 200 200">
+          <circle class="t-bg" cx="100" cy="100" r="88"></circle>
+          <g id="tTicks"></g>
+          <circle class="t-ring" id="tRing" cx="100" cy="100" r="88" pathLength="1000"></circle>
+        </svg>
+        <div class="t-num" id="tNum">60</div>
+        <div class="t-lbl" id="tLbl">минута на обсуждение</div>
+      </div>
+      <div class="controls" id="controls">
+        <button class="btn gold" id="btnTime">Время пошло</button>
+        <div class="ctrl-row">
+          <button class="btn ghost" id="btnEarly">Досрочный ответ</button>
+          <button class="btn ghost" id="btnReset" title="Сброс (R)">↺ Сброс</button>
+        </div>
+        <button class="btn ghost" id="btnShow">Показать ответ</button>
+        <div class="ctrl-row score-row" id="scoreRow">
+          <button class="btn win" id="btnA">Очко знатокам</button>
+          <button class="btn lose" id="btnB">Очко телезрителям</button>
+        </div>
+      </div>
+      <div class="keys"><kbd>Пробел</kbd> старт/пауза · <kbd>D</kbd> досрочно · <kbd>R</kbd> сброс · <kbd>Enter</kbd> ответ · <kbd>1</kbd>/<kbd>2</kbd> очко</div>
+    </div>
+  </div>
+</section>
+
+<!-- BLACK BOX overlay -->
+<div class="bbox" id="bbox">
+  <div class="bb-rays"></div>
+  <div class="bb-title">Чёрный ящик</div>
+  <div class="bb-stage"><img src="img/black-box.webp" alt="Чёрный ящик" id="bbImg"></div>
+  <div class="bb-sub">Внимание! В студии — чёрный ящик</div>
+  <button class="btn gold big" id="btnBbOpen">Открыть вопрос</button>
+</div>
+
+<!-- VICTORY -->
+<section class="screen" id="scWin">
+  <div class="win-wrap">
+    <canvas id="confetti"></canvas>
+    <img src="img/owl.webp" class="owl small" alt="">
+    <div class="win-kicker" id="winKicker">Игра окончена</div>
+    <h2 class="win-title" id="winTitle">Победили знатоки!</h2>
+    <div class="win-score" id="winScore">6 : 3</div>
+    <div class="win-actions">
+      <button class="btn gold big" id="btnAgain">Новая игра</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="toast" id="toast"></div>
+<script src="audio.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

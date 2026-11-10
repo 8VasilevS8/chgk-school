@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3d58a"/><stop offset="1" stop-color="#b8862f"/></linearGradient></defs><rect width="800" height="300" rx="24" fill="#0c1224"/>
+<rect x="60" y="40" width="680" height="200" rx="18" fill="none" stroke="#c9a14a" stroke-opacity=".5" stroke-width="2"/>
+<text x="400" y="195" font-family="Georgia,serif" font-size="150" fill="url(#g)" text-anchor="middle" letter-spacing="10">100<tspan fill="#e8e2d0">Л</tspan></text>
+<text x="400" y="280" font-family="Georgia,serif" font-size="22" fill="#8f9bb8" text-anchor="middle" font-style="italic">Ребус</text></svg>

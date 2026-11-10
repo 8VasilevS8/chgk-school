@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"><rect width="800" height="400" rx="24" fill="#0c1224"/>
+<path d="M0 120 C200 100 600 100 800 120 L800 290 C600 310 200 310 0 290 Z" fill="#14305a"/>
+<path d="M520 120 C600 160 600 250 520 290" fill="none" stroke="#0c1224" stroke-width="0"/>
+<ellipse cx="300" cy="205" rx="130" ry="48" fill="#1d2747" stroke="#c9a14a" stroke-width="2"/>
+<ellipse cx="610" cy="205" rx="80" ry="44" fill="#1d2747" stroke="#c9a14a" stroke-width="2"/>
+<g stroke="#f3d58a" stroke-width="12" stroke-linecap="round">
+<line x1="230" y1="112" x2="240" y2="165"/><line x1="360" y1="112" x2="350" y2="165"/>
+<line x1="230" y1="298" x2="240" y2="245"/><line x1="360" y1="298" x2="350" y2="245"/>
+<line x1="430" y1="205" x2="530" y2="205"/>
+<line x1="610" y1="112" x2="610" y2="161"/><line x1="610" y1="298" x2="610" y2="249"/></g>
+<rect x="0" y="0" width="800" height="112" rx="24" fill="#18213d"/><rect x="0" y="298" width="800" height="102" rx="24" fill="#18213d"/>
+<text x="400" y="60" font-family="Georgia,serif" font-size="24" fill="#8f9bb8" text-anchor="middle" font-style="italic">Схема старого города: два острова и семь мостов</text></svg>
