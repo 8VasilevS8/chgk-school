@@ -286,7 +286,8 @@
     $('#segPack').querySelectorAll('button').forEach(b => b.onclick = () => { S.pack = b.dataset.v; renderSetup(); SFX.tick(false); });
     const list = packList(S.pack), pl = played(), left = list.filter(q => !pl.has(q.id)).length;
     const desc = { base: 'вопросы клуба из вашего файла', mix: 'все вопросы вперемешку', gen9: 'сгенерированные, для 9 класса', gen10: 'сгенерированные, для 10 класса', gen11: 'сгенерированные, для 11 класса' }[S.pack] || '';
-    $('#packInfo').textContent = `${list.length} вопросов · ${desc}`;
+    const n = list.length, w = n % 10 === 1 && n % 100 !== 11 ? 'вопрос' : [2, 3, 4].includes(n % 10) && ![12, 13, 14].includes(n % 100) ? 'вопроса' : 'вопросов';
+    $('#packInfo').textContent = `${n} ${w} · ${desc}`;
     $('#historyInfo').textContent = `Ещё не сыграно: ${left} из ${list.length}. Сыгранные вопросы не повторяются в следующих играх.`;
     document.querySelectorAll('#segPenalty button').forEach(b => b.classList.toggle('on', b.dataset.v === S.penalty));
     $('#inTeam').value = S.team; $('#tVal').textContent = S.target; $('#sVal').textContent = S.seconds; $('#chkTick').checked = S.tick;
