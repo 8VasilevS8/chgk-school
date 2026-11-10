@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300"><defs><radialGradient id="on"><stop offset="0" stop-color="#fff3c4"/><stop offset=".45" stop-color="#f3c85a"/><stop offset="1" stop-color="#8a5a12"/></radialGradient><filter id="glow"><feGaussianBlur stdDeviation="10"/></filter></defs><rect width="800" height="300" rx="24" fill="#0c1224"/>
-<line x1="80" y1="60" x2="720" y2="60" stroke="#c9a14a" stroke-opacity=".5" stroke-width="3"/>
-<g><line x1="160" y1="60" x2="160" y2="100" stroke="#c9a14a" stroke-width="3"/><circle cx="160" cy="150" r="55" fill="#f3c85a" filter="url(#glow)" opacity=".8"/><circle cx="160" cy="150" r="48" fill="url(#on)"/></g>
-<g><line x1="320" y1="60" x2="320" y2="100" stroke="#c9a14a" stroke-width="3"/><circle cx="320" cy="150" r="48" fill="#1a2240" stroke="#3b466b" stroke-width="3"/></g>
-<g><line x1="480" y1="60" x2="480" y2="100" stroke="#c9a14a" stroke-width="3"/><circle cx="480" cy="150" r="55" fill="#f3c85a" filter="url(#glow)" opacity=".8"/><circle cx="480" cy="150" r="48" fill="url(#on)"/></g>
-<g><line x1="640" y1="60" x2="640" y2="100" stroke="#c9a14a" stroke-width="3"/><circle cx="640" cy="150" r="55" fill="#f3c85a" filter="url(#glow)" opacity=".8"/><circle cx="640" cy="150" r="48" fill="url(#on)"/></g>
-<text x="400" y="265" font-family="Georgia,serif" font-size="22" fill="#8f9bb8" text-anchor="middle" font-style="italic">Гирлянда над дверью кабинета</text></svg>

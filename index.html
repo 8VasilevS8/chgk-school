@@ -18,7 +18,7 @@
 <div class="topbar" id="topbar">
   <button class="icon-btn" id="btnHome" title="В меню">☰</button>
   <div class="scoreboard" id="scoreboard">
-    <div class="sb-side"><div class="sb-label" id="sbTeam">Знатоки</div><div class="sb-num" id="sbA">0</div></div>
+    <div class="sb-side"><div class="sb-label" id="sbTeam">Знатоки</div><div class="sb-num" id="sbA">0</div><div class="penalty-fx" id="penaltyFx">−1</div></div>
     <div class="sb-colon">:</div>
     <div class="sb-side"><div class="sb-label">Телезрители</div><div class="sb-num" id="sbB">0</div></div>
   </div>
@@ -46,10 +46,9 @@
   <div class="panel setup">
     <h2 class="h2">Новая игра</h2>
     <div class="field">
-      <div class="lbl">Класс</div>
-      <div class="seg" id="segGrade">
-        <button data-v="9">9 класс</button><button data-v="10">10 класс</button><button data-v="11">11 класс</button>
-      </div>
+      <div class="lbl">Вопросы</div>
+      <div class="seg pack-seg" id="segPack"></div>
+      <div class="sub" id="packInfo"></div>
     </div>
     <div class="field">
       <div class="lbl">Команда знатоков</div>
@@ -67,10 +66,17 @@
         <div class="sub">секунд</div>
       </div>
     </div>
+    <div class="field">
+      <div class="lbl">Штраф за неверный досрочный ответ</div>
+      <div class="seg seg2" id="segPenalty">
+        <button data-v="minus">−1 знатокам</button><button data-v="none">Только очко телезрителям</button>
+      </div>
+    </div>
     <label class="check"><input type="checkbox" id="chkTick" checked> Тиканье часов во время минуты</label>
     <button class="btn gold big" id="btnGo">За стол!</button>
     <div class="base-note">
-      Сейчас загружены <b>образцы вопросов</b> (по 12 на класс).
+      <span id="historyInfo"></span>
+      <button class="link-btn" id="btnResetHistory">Сбросить историю вопросов</button>
       <label class="link">Загрузить свою базу (JSON)<input type="file" id="inBase" accept=".json,application/json" hidden></label>
     </div>
   </div>
@@ -102,9 +108,12 @@
   <div class="q-layout">
     <div class="q-card">
       <div class="q-meta"><span id="qSector">Сектор 1</span><span class="q-type" id="qType">Вопрос</span><span class="sample" title="Образец вопроса">образец</span></div>
+      <div class="q-opp" id="qOpp"></div>
       <div class="q-blitz" id="qBlitz"></div>
       <div class="q-text" id="qText"></div>
       <img class="q-img" id="qImg" alt="">
+      <button class="hint-btn" id="btnHint">Подсказка ведущему</button>
+      <div class="q-hint" id="qHint"></div>
       <div class="q-answer" id="qAnswer">
         <div class="a-lbl">Правильный ответ</div>
         <div class="a-text" id="aText"></div>
@@ -133,7 +142,7 @@
           <button class="btn lose" id="btnB">Очко телезрителям</button>
         </div>
       </div>
-      <div class="keys"><kbd>Пробел</kbd> старт/пауза · <kbd>D</kbd> досрочно · <kbd>R</kbd> сброс · <kbd>Enter</kbd> ответ · <kbd>1</kbd>/<kbd>2</kbd> очко</div>
+      <div class="keys"><kbd>Пробел</kbd> старт/пауза · <kbd>D</kbd> досрочно · <kbd>R</kbd> сброс · <kbd>Enter</kbd> ответ · <kbd>1</kbd>/<kbd>2</kbd> верно/неверно</div>
     </div>
   </div>
 </section>
